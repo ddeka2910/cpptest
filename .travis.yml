@@ -4,6 +4,9 @@
 language: cpp
 dist: xenial
 
+arch:
+  - ppc64le
+
 script:
   - set -e
   - ./autogen.sh
