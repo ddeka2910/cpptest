@@ -11,24 +11,9 @@ script:
   - set -e
   - sudo apt-get install g++  
   - ./autogen.sh
-  - compile_flags=(
-        -pipe
-
-        -O1
-        -g
-        -fsanitize=address
-        -fno-omit-frame-pointer
-
-        -Wall
-        -Wextra
-        -pedantic
-    )
-    && CXXFLAGS="${compile_flags[*]} -std=c++11"
-    && configure_args=(
+  - configure_args=(
         CC=gcc
         CXX=g++
-        CXXFLAGS="${CXXFLAGS}"
-        LDFLAGS='-g -fsanitize=address'
 
         --enable-doc
     )
