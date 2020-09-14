@@ -24,8 +24,8 @@ script:
     )
     && CXXFLAGS="${compile_flags[*]} -std=c++11"
     && configure_args=(
-        CC=clang-7
-        CXX=clang++-7
+        CC=gcc
+        CXX=g++
         CXXFLAGS="${CXXFLAGS}"
         LDFLAGS='-g -fsanitize=address'
 
@@ -53,3 +53,5 @@ addons:
       - clang-7
       - doxygen
       - lzip
+      - gcc
+      - g++  
