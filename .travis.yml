@@ -9,6 +9,7 @@ arch:
 
 script:
   - set -e
+  - sudo apt-get install g++  
   - ./autogen.sh
   - compile_flags=(
         -pipe
