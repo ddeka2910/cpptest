@@ -50,7 +50,7 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - abi-compliance-checker
-      - clang-7
+      #- clang-7
       - doxygen
       - lzip
       - gcc
