@@ -39,5 +39,6 @@ addons:
       #- clang-7
       - doxygen
       - lzip
+      - zip  
       - gcc
       - g++  
