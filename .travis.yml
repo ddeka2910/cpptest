@@ -4,17 +4,27 @@
 language: cpp
 dist: xenial
 
-arch:
-  - amd64      
-  - ppc64le
-
 script:
   - set -e
-  - sudo apt-get install g++  
   - ./autogen.sh
-  - configure_args=(
-        CC=gcc
-        CXX=g++
+  - compile_flags=(
+        -pipe
+
+        -O1
+        -g
+        -fsanitize=address
+        -fno-omit-frame-pointer
+
+        -Wall
+        -Wextra
+        -pedantic
+    )
+    && CXXFLAGS="${compile_flags[*]} -std=c++11"
+    && configure_args=(
+        CC=clang-7
+        CXX=clang++-7
+        CXXFLAGS="${CXXFLAGS}"
+        LDFLAGS='-g -fsanitize=address'
 
         --enable-doc
     )
@@ -37,9 +47,6 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - abi-compliance-checker
-      #- clang-7
+      - clang-7
       - doxygen
       - lzip
-      - zip  
-      - gcc
-      - g++  
